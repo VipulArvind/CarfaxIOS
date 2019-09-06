@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9sn-5v-nr0">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehicleCell" id="9sn-5v-nr0" customClass="VehicleCell" customModule="CarfaxIOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="420"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -68,8 +68,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="YSg-IG-gIH" firstAttribute="centerX" secondItem="9hh-Zh-1ac" secondAttribute="centerX" id="Hpq-5d-j74"/>
                                                         <constraint firstItem="O5q-3d-57w" firstAttribute="top" secondItem="9hh-Zh-1ac" secondAttribute="top" id="IhU-dR-dLM"/>
+                                                        <constraint firstItem="YSg-IG-gIH" firstAttribute="centerX" secondItem="9hh-Zh-1ac" secondAttribute="centerX" id="c7B-2p-Uqy"/>
                                                         <constraint firstAttribute="trailing" secondItem="O5q-3d-57w" secondAttribute="trailing" id="cz4-oW-epS"/>
                                                         <constraint firstItem="itu-5j-eQf" firstAttribute="top" secondItem="O5q-3d-57w" secondAttribute="bottom" constant="8" id="fGY-g5-bWp"/>
                                                         <constraint firstItem="itu-5j-eQf" firstAttribute="leading" secondItem="9hh-Zh-1ac" secondAttribute="leading" constant="20" id="fhN-wE-evj"/>
