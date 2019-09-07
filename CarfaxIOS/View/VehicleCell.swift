@@ -25,4 +25,8 @@ class VehicleCell: UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
   }
+
+  // MARK: - User Action Handling
+  @IBAction func callPhoneTapped(_ sender: Any) {
+  }
 }

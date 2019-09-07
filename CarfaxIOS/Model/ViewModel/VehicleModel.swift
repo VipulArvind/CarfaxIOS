@@ -13,10 +13,10 @@ import Foundation
 //      Model for 1 Vehicle
 //
 
-class VehicleModel: NSObject {
+struct VehicleModel: Codable {
     
   // MARK: - Vars
-  /*
+  
   let model: String
   let make: String
   let year: Int
@@ -25,14 +25,9 @@ class VehicleModel: NSObject {
   let city: String
   let state: String
   let phone: String
- */
-  
-  // MARK: - Init
-  override init() {
-      super.init()
-  }
-     
-  init?(vehicleDict: [String: Any]) {
-  }
-        
+ 
+}
+
+struct VehiclesList: Codable {
+  let vehicles: [VehicleModel]
 }

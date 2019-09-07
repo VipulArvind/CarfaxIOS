@@ -16,6 +16,9 @@
 		8172A0572322C9F5005B4DA1 /* VehicleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0562322C9F5005B4DA1 /* VehicleCell.swift */; };
 		8172A05E2322CF3B005B4DA1 /* VehicleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A05D2322CF3B005B4DA1 /* VehicleModel.swift */; };
 		8172A0612322D60F005B4DA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0602322D60F005B4DA1 /* Constants.swift */; };
+		8172A0642322D8FD005B4DA1 /* VehiclesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0632322D8FD005B4DA1 /* VehiclesManager.swift */; };
+		8172A0662322E003005B4DA1 /* DataMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0652322E003005B4DA1 /* DataMgr.swift */; };
+		8172A06A232314B0005B4DA1 /* ErrorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A069232314B0005B4DA1 /* ErrorEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		8172A0562322C9F5005B4DA1 /* VehicleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleCell.swift; sourceTree = "<group>"; };
 		8172A05D2322CF3B005B4DA1 /* VehicleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleModel.swift; sourceTree = "<group>"; };
 		8172A0602322D60F005B4DA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8172A0632322D8FD005B4DA1 /* VehiclesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesManager.swift; sourceTree = "<group>"; };
+		8172A0652322E003005B4DA1 /* DataMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMgr.swift; sourceTree = "<group>"; };
+		8172A069232314B0005B4DA1 /* ErrorEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +101,8 @@
 		8172A05F2322CF42005B4DA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8172A05D2322CF3B005B4DA1 /* VehicleModel.swift */,
+				8172A0672322E00D005B4DA1 /* DataAccess */,
+				8172A0682322E018005B4DA1 /* ViewModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -103,9 +110,27 @@
 		8172A0622322D615005B4DA1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				8172A069232314B0005B4DA1 /* ErrorEnums.swift */,
 				8172A0602322D60F005B4DA1 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		8172A0672322E00D005B4DA1 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				8172A0652322E003005B4DA1 /* DataMgr.swift */,
+			);
+			path = DataAccess;
+			sourceTree = "<group>";
+		};
+		8172A0682322E018005B4DA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8172A0632322D8FD005B4DA1 /* VehiclesManager.swift */,
+				8172A05D2322CF3B005B4DA1 /* VehicleModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8172A0642322D8FD005B4DA1 /* VehiclesManager.swift in Sources */,
 				8172A0612322D60F005B4DA1 /* Constants.swift in Sources */,
 				8172A0572322C9F5005B4DA1 /* VehicleCell.swift in Sources */,
 				8172A0442322B68F005B4DA1 /* ViewController.swift in Sources */,
+				8172A0662322E003005B4DA1 /* DataMgr.swift in Sources */,
+				8172A06A232314B0005B4DA1 /* ErrorEnums.swift in Sources */,
 				8172A05E2322CF3B005B4DA1 /* VehicleModel.swift in Sources */,
 				8172A0422322B68F005B4DA1 /* AppDelegate.swift in Sources */,
 			);
