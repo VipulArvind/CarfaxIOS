@@ -47,7 +47,10 @@ struct Vehicle: Encodable {
   }
   
   func formattedYearMakeModelTrim () -> String {
-    return String(year) + " " + make + model + trim
+    if(trim.caseInsensitiveCompare("Unspecified") == .orderedSame){
+      return String(year) + " " + make + " " + model
+    }
+    return String(year) + " " + make + " " + model +  " " + trim
   }
   
   func formattedPriceMileageLocation () -> NSAttributedString {
