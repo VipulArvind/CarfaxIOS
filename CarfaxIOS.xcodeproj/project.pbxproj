@@ -10,6 +10,8 @@
 		8111EEFC2324A0FC005F32A7 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EEFB2324A0FC005F32A7 /* CacheManager.swift */; };
 		8111EEFE232570C5005F32A7 /* Int+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EEFD232570C5005F32A7 /* Int+Formatting.swift */; };
 		8111EF00232570FA005F32A7 /* String+FormatPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EEFF232570FA005F32A7 /* String+FormatPhone.swift */; };
+		8111EF022325903D005F32A7 /* AllVehiclesOnMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */; };
+		8111EF0423259486005F32A7 /* VehicleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */; };
 		8172A0422322B68F005B4DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0412322B68F005B4DA1 /* AppDelegate.swift */; };
 		8172A0442322B68F005B4DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0432322B68F005B4DA1 /* ViewController.swift */; };
 		8172A0472322B68F005B4DA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A0452322B68F005B4DA1 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 		8111EEFB2324A0FC005F32A7 /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		8111EEFD232570C5005F32A7 /* Int+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Formatting.swift"; sourceTree = "<group>"; };
 		8111EEFF232570FA005F32A7 /* String+FormatPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+FormatPhone.swift"; sourceTree = "<group>"; };
+		8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllVehiclesOnMapController.swift; sourceTree = "<group>"; };
+		8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleAnnotationView.swift; sourceTree = "<group>"; };
 		8172A03E2322B68F005B4DA1 /* CarfaxIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarfaxIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A0412322B68F005B4DA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A0432322B68F005B4DA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 		8172A0582322C9FC005B4DA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */,
 				8172A0562322C9F5005B4DA1 /* VehicleCell.swift */,
 			);
 			path = View;
@@ -118,6 +123,7 @@
 		8172A0592322CED9005B4DA1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */,
 				8172A0432322B68F005B4DA1 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -256,9 +262,11 @@
 				8172A0572322C9F5005B4DA1 /* VehicleCell.swift in Sources */,
 				8172A0442322B68F005B4DA1 /* ViewController.swift in Sources */,
 				8111EF00232570FA005F32A7 /* String+FormatPhone.swift in Sources */,
+				8111EF0423259486005F32A7 /* VehicleAnnotationView.swift in Sources */,
 				8111EEFC2324A0FC005F32A7 /* CacheManager.swift in Sources */,
 				8172A0662322E003005B4DA1 /* DataMgr.swift in Sources */,
 				8172A06A232314B0005B4DA1 /* ErrorEnums.swift in Sources */,
+				8111EF022325903D005F32A7 /* AllVehiclesOnMapController.swift in Sources */,
 				8172A05E2322CF3B005B4DA1 /* VehicleModel.swift in Sources */,
 				8111EEFE232570C5005F32A7 /* Int+Formatting.swift in Sources */,
 				8172A0422322B68F005B4DA1 /* AppDelegate.swift in Sources */,

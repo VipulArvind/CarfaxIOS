@@ -113,7 +113,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Carfax" id="upm-MB-Gm9"/>
+                    <navigationItem key="navigationItem" title="Carfax" id="upm-MB-Gm9">
+                        <barButtonItem key="rightBarButtonItem" title="map" image="icon_map" id="DDf-7f-YYm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="8js-LC-avl" kind="presentation" id="VLW-O7-dIQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="buQ-LX-3Fi" id="PbM-Wh-28p"/>
                     </connections>
@@ -141,5 +148,55 @@
             </objects>
             <point key="canvasLocation" x="257.97101449275362" y="782.8125"/>
         </scene>
+        <!--All Vehicles-->
+        <scene sceneID="Hw3-K1-PkZ">
+            <objects>
+                <viewController id="8js-LC-avl" userLabel="All Vehicles" customClass="AllVehiclesOnMapController" customModule="CarfaxIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ux6-yQ-xgw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HYb-fv-f1g">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFR-U8-nOB">
+                                <rect key="frame" x="334" y="64" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TJB-vw-5Tb"/>
+                                    <constraint firstAttribute="width" constant="60" id="q6K-l3-e7n"/>
+                                </constraints>
+                                <state key="normal" image="ic_close"/>
+                                <connections>
+                                    <action selector="closeTapped:" destination="8js-LC-avl" eventType="touchUpInside" id="nwx-J4-xw3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HYb-fv-f1g" firstAttribute="top" secondItem="OXx-fH-gAF" secondAttribute="top" id="38i-vj-hHm"/>
+                            <constraint firstItem="HYb-fv-f1g" firstAttribute="leading" secondItem="ux6-yQ-xgw" secondAttribute="leading" id="QSi-L5-Xjs"/>
+                            <constraint firstItem="OXx-fH-gAF" firstAttribute="bottom" secondItem="HYb-fv-f1g" secondAttribute="bottom" id="SD6-kl-zXk"/>
+                            <constraint firstItem="OXx-fH-gAF" firstAttribute="trailing" secondItem="vFR-U8-nOB" secondAttribute="trailing" constant="20" id="ZCK-6N-VcK"/>
+                            <constraint firstAttribute="trailing" secondItem="HYb-fv-f1g" secondAttribute="trailing" id="ax7-JH-zqk"/>
+                            <constraint firstItem="vFR-U8-nOB" firstAttribute="top" secondItem="OXx-fH-gAF" secondAttribute="top" constant="20" id="iG1-2D-iLU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OXx-fH-gAF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lunch Tyme" id="EOG-cg-KgP">
+                        <barButtonItem key="rightBarButtonItem" title="map" image="icon_map" id="Uen-8e-yWJ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="closeButton" destination="vFR-U8-nOB" id="GP4-se-6F2"/>
+                        <outlet property="mapView" destination="HYb-fv-f1g" id="fog-hh-xP0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RIZ-iY-3Ba" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="138"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="ic_close" width="19" height="18"/>
+        <image name="icon_map" width="30" height="30"/>
+    </resources>
 </document>

@@ -25,6 +25,7 @@ struct Constants {
   
   // MARK: - Colors
   static let blackColor = UIColor.black
+  static let carfaxBlueColor = UIColor(red: 43.0/255.0, green: 97.0/255.0, blue: 185.0/255.0, alpha: 1.0)
   
   // MARK: - Fonts
   static let systemFontSize12 = UIFont.systemFont(ofSize: 14.0)

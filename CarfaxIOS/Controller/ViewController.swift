@@ -115,3 +115,16 @@ extension ViewController {
     startDownloadingData()
   }
 }
+
+extension ViewController {
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    guard let destination = segue.destination as? AllVehiclesOnMapController
+      else {
+        return
+    }
+
+    destination.vehiclesManager = vehiclesManager
+  }
+}
