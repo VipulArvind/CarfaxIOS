@@ -42,24 +42,28 @@ final class VehiclesManager: NSObject {
     }
   }
   
-   // MARK: - Public Methods
+  // MARK: - Public Methods
    
-   func count() -> Int {
+  func count() -> Int {
     return vehiclesList.count
-   }
+  }
    
-   func vehicle(atIndex: Int) -> Vehicle? {
+  func vehicle(atIndex: Int) -> Vehicle? {
     if vehiclesList.count > atIndex {
       return vehiclesList[atIndex]
     }
     return nil
-   }
+  }
    
-   func allVehicles() -> [Vehicle] {
+  func allVehicles() -> [Vehicle] {
     return vehiclesList
-   }
+  }
    
-   func first() -> Vehicle? {
+  func first() -> Vehicle? {
     return vehiclesList.first
-   }
+  }
+  
+  func resetVehiclesList() {
+    vehiclesList.removeAll()
+  }
 }

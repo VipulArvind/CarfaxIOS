@@ -25,7 +25,8 @@ class ViewController: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     
-    startDownloadingData()
+    addRefreshControl()
+    startDownloadingData()    
   }
   
   private func startDownloadingData() {
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
       } else {
         print ("failure")
       }
+      self?.collectionView.refreshControl?.endRefreshing()
     }
   }
   
@@ -85,5 +87,31 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     let collectionViewWidth = collectionView.bounds.width
     let width = (UIDevice.current.userInterfaceIdiom == .phone) ? collectionViewWidth : collectionViewWidth / 2 - 2
     return CGSize(width: width, height: 420.0)
+  }
+}
+
+
+extension ViewController {
+  func addRefreshControl() {
+    collectionView.refreshControl = UIRefreshControl()
+    collectionView.refreshControl?.tintColor = Constants.blackColor
+    collectionView.refreshControl?.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), for: .valueChanged)
+    collectionView.refreshControl?.beginRefreshing()
+    
+  }
+  
+  @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    /*
+    let newHotel = Hotels(name: "Montage Laguna Beach", place:
+      "California south")
+    hotels.append(newHotel)
+    
+    hotels.sort() { $0.name < $0.place }
+    
+    self.tableView.reloadData()
+ */
+    vehiclesManager.resetVehiclesList()
+    collectionView.reloadData()
+    startDownloadingData()
   }
 }
