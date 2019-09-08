@@ -24,6 +24,9 @@ struct Constants {
   static let vehiclesDataURL = "https://carfax-for-consumers.firebaseio.com/assignment.json"
   
   // MARK: - Colors
+  static let blackColor = UIColor.black
   
   // MARK: - Fonts
+  static let systemFontSize12 = UIFont.systemFont(ofSize: 14.0)
+  static let systemFontBoldSize12 = UIFont.boldSystemFont(ofSize: 14.0)
 }

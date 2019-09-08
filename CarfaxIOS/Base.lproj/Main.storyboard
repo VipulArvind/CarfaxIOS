@@ -44,6 +44,12 @@
                                                                 <constraint firstAttribute="width" secondItem="O5q-3d-57w" secondAttribute="height" multiplier="207:155" id="Svv-zX-kcN"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-cm-RNg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="KCO-cm-RNg" secondAttribute="height" multiplier="207:155" id="YNs-hn-IUg"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="itu-5j-eQf">
                                                             <rect key="frame" x="20" y="318" width="394" height="49"/>
                                                             <subviews>
@@ -53,10 +59,15 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvC-8F-4oV">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvC-8F-4oV">
                                                                     <rect key="frame" x="0.0" y="28.5" width="394" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <attributedString key="attributedText">
+                                                                        <fragment content="Label">
+                                                                            <attributes>
+                                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -71,7 +82,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="KCO-cm-RNg" firstAttribute="top" secondItem="9hh-Zh-1ac" secondAttribute="top" id="7fW-JF-qE2"/>
                                                         <constraint firstItem="O5q-3d-57w" firstAttribute="top" secondItem="9hh-Zh-1ac" secondAttribute="top" id="IhU-dR-dLM"/>
+                                                        <constraint firstItem="KCO-cm-RNg" firstAttribute="leading" secondItem="9hh-Zh-1ac" secondAttribute="leading" id="YSk-Ol-3qj"/>
                                                         <constraint firstItem="YSg-IG-gIH" firstAttribute="centerX" secondItem="9hh-Zh-1ac" secondAttribute="centerX" id="c7B-2p-Uqy"/>
                                                         <constraint firstAttribute="trailing" secondItem="O5q-3d-57w" secondAttribute="trailing" id="cz4-oW-epS"/>
                                                         <constraint firstItem="itu-5j-eQf" firstAttribute="top" secondItem="O5q-3d-57w" secondAttribute="bottom" constant="8" id="fGY-g5-bWp"/>
@@ -79,6 +92,7 @@
                                                         <constraint firstItem="O5q-3d-57w" firstAttribute="leading" secondItem="9hh-Zh-1ac" secondAttribute="leading" id="k43-L7-SUP"/>
                                                         <constraint firstItem="YSg-IG-gIH" firstAttribute="top" secondItem="itu-5j-eQf" secondAttribute="bottom" constant="10" id="kSo-5G-5lv"/>
                                                         <constraint firstAttribute="trailing" secondItem="itu-5j-eQf" secondAttribute="trailing" id="sQd-S3-sE3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="KCO-cm-RNg" secondAttribute="trailing" id="vfG-cd-F0r"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -90,6 +104,7 @@
                                             <constraint firstAttribute="bottom" secondItem="9hh-Zh-1ac" secondAttribute="bottom" id="knk-uD-r9G"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="phoneNumber" destination="YSg-IG-gIH" id="dbd-KD-gaG"/>
                                             <outlet property="vehicleImageView" destination="O5q-3d-57w" id="taA-Xk-h2l"/>
                                             <outlet property="vehiclePriceMileageLocation" destination="yvC-8F-4oV" id="8mB-oF-UpP"/>
                                             <outlet property="vehicleYearMakeModel" destination="5X2-QO-n1d" id="xgb-pk-52A"/>
@@ -136,4 +151,7 @@
             <point key="canvasLocation" x="257.97101449275362" y="782.8125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cellGradientBackground" width="320" height="116"/>
+    </resources>
 </document>

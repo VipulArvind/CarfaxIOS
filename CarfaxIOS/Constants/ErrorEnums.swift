@@ -6,10 +6,10 @@
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
 //
 
-
 import Foundation
 
 public enum CarfaxErrors: LocalizedError {
+  
   case noInternetConnection
   case requestTimeout
   case unknown
@@ -24,5 +24,4 @@ public enum CarfaxErrors: LocalizedError {
       return "Something went wrong."
     }
   }
-  
 }

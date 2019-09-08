@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+//
+// DataMgr
+//      Class to implement all 'data fetching from server tasks'
+//
+
 class DataMgr {
   
   let defaultSession = URLSession(configuration: .default)

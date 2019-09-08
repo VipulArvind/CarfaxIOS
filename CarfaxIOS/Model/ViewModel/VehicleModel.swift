@@ -25,7 +25,6 @@ struct VehicleModel: Codable {
   let city: String
   let state: String
   let phone: String
- 
 }
 
 struct VehiclesList: Codable {

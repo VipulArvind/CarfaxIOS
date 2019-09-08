@@ -51,7 +51,6 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    print ("returning count as \(vehiclesManager.count())")
     return vehiclesManager.count()
   }
   
@@ -70,6 +69,8 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
+    cell.updateValues(vehicle: aVehicle, cellForItemAt: indexPath)
+    
     return cell
   }
 }
@@ -83,6 +84,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let collectionViewWidth = collectionView.bounds.width
     let width = (UIDevice.current.userInterfaceIdiom == .phone) ? collectionViewWidth : collectionViewWidth / 2 - 2
-    return CGSize(width: width, height: 180.0)
+    return CGSize(width: width, height: 420.0)
   }
 }
