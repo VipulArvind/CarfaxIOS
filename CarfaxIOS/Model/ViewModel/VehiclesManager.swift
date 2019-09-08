@@ -17,7 +17,7 @@ import UIKit
 final class VehiclesManager: NSObject {
   
   // MARK: - Vars
-  var vehiclesList: [Response.Vehicle] = []
+  var vehiclesList: [Vehicle] = []
     
   // MARK: - overrides
   override init() {
@@ -32,7 +32,7 @@ final class VehiclesManager: NSObject {
       
         do {
           let decoder = JSONDecoder()
-          let rootData = try decoder.decode(Response.self, from: result )
+          let rootData = try decoder.decode(CarfaxAPIResponse.self, from: result )
           self.vehiclesList.append(contentsOf: rootData.listings)
         } catch let err {
           print("Err", err)
@@ -48,18 +48,18 @@ final class VehiclesManager: NSObject {
     return vehiclesList.count
    }
    
-   func vehicle(atIndex: Int) -> Response.Vehicle? {
+   func vehicle(atIndex: Int) -> Vehicle? {
     if vehiclesList.count > atIndex {
       return vehiclesList[atIndex]
     }
     return nil
    }
    
-   func allVehicles() -> [Response.Vehicle] {
+   func allVehicles() -> [Vehicle] {
     return vehiclesList
    }
    
-   func first() -> Response.Vehicle? {
+   func first() -> Vehicle? {
     return vehiclesList.first
    }
 }

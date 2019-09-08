@@ -32,18 +32,17 @@ class VehicleCell: UICollectionViewCell {
     vehicleYearMakeModel.textColor = Constants.blackColor
   }
   
-  func updateValues(vehicle: Response.Vehicle, cellForItemAt indexPath: IndexPath) {
+  func updateValues(vehicle: Vehicle, cellForItemAt indexPath: IndexPath) {
     vehicleYearMakeModel.text = vehicle.formattedYearMakeModelTrim()
     vehiclePriceMileageLocation.attributedText = vehicle.formattedPriceMileageLocation()
     phoneNumber.setTitle(vehicle.formattedPhoneNumber(), for: .normal)
     updateVehicleImage(vehicle: vehicle, cellForItemAt: indexPath)
   }
   
-  func updateVehicleImage(vehicle: Response.Vehicle, cellForItemAt indexPath: IndexPath) {
+  func updateVehicleImage(vehicle: Vehicle, cellForItemAt indexPath: IndexPath) {
     vehicleImageView.image = nil
     
-    //let imgURL = aRestaurant.backgroundImageURL
-    let imgURL = "https://carfax-img.vast.com/carfax/-9050308143659109979/1/640x480"
+    let imgURL = vehicle.mediumImage
     if let cacheImage = CacheManager.shared.getImageFromCache(key: imgURL) {
       vehicleImageView.image = cacheImage
     } else {
