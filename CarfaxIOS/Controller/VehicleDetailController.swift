@@ -140,7 +140,6 @@ extension VehicleDetailController: CLLocationManagerDelegate {
 extension VehicleDetailController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    print ("vips \(vehiclePropertiesModel.items.count)")
     return vehiclePropertiesModel.items.count
   }
   
