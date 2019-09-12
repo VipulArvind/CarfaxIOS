@@ -29,6 +29,15 @@ class VDPropertiesAndValuesCell: UICollectionViewCell, ConfigurableCell {
   
   func configure(data cellModel: VDPropertiesAndValuesModel, atIndex: IndexPath) {
     title.text = cellModel.title
+    property0.text = cellModel.propertiesList["property0"]
+    property1.text = cellModel.propertiesList["property1"]
+    property2.text = cellModel.propertiesList["property2"]
+    property3.text = cellModel.propertiesList["property3"]
+    
+    value0.text = cellModel.propertiesList["value0"]
+    value1.text = cellModel.propertiesList["value1"]
+    value2.text = cellModel.propertiesList["value2"]
+    value3.text = cellModel.propertiesList["value3"]
   }
 }
 
@@ -68,13 +77,6 @@ class VDPropertiesAndImagesCell: UICollectionViewCell, ConfigurableCell {
     if let imageURL3 = cellModel.propertiesList["value3"] {
       self.update(imageView: imageView3, with: imageURL3, at: atIndex)
     }
-    
-    
-    
-    
-    
-    
-    //imageView0.image
   }
   
   func update(imageView: UIImageView, with imageName: String, at cellForItemAt: IndexPath) {

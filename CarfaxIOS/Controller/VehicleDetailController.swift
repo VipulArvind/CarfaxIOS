@@ -19,7 +19,6 @@ class VehicleDetailController: UIViewController {
     
   // MARK: - Outlets
   @IBOutlet weak var mapView: MKMapView!
-  @IBOutlet weak var vehicleYearMakeModel: UILabel!
   @IBOutlet weak var vehiclePriceMileageLocation: UILabel!
   @IBOutlet weak var VDCollectionView: UICollectionView!
 
@@ -65,8 +64,6 @@ class VehicleDetailController: UIViewController {
   // MARK: - Private Initialzation
   private func initFontAndColors() {
     self.title = vehicleModel.formattedYearMakeModelTrim()
-    vehicleYearMakeModel.font = Constants.systemFontBoldSize12
-    vehicleYearMakeModel.textColor = Constants.whiteColor
         
     vehiclePriceMileageLocation.font = Constants.systemFontSize12
     vehiclePriceMileageLocation.textColor = Constants.whiteColor
@@ -83,31 +80,40 @@ class VehicleDetailController: UIViewController {
   }
     
   private func initVehicleDetails() {
-    
-    vehicleYearMakeModel.text = vehicleModel.formattedYearMakeModelTrim()
+
     vehiclePriceMileageLocation.text = vehicleModel.formattedPriceMileageLocation().string
     
     // data model from Vehicle Details for the CollectionView
     
-    let propertiesQuickView = ["property0": vehicleModel.accidentHistoryText,
-                               "value0": vehicleModel.accidentHistoryIconURL,
-                               "property1": vehicleModel.ownerHistoryText,
-                               "value1": vehicleModel.ownerHistoryIconURL,
-                               "property2": vehicleModel.serviceHistoryText,
-                               "value2": vehicleModel.serviceHistoryIconURL,
-                               "property3": vehicleModel.vehicleUseHistoryText,
-                               "value3": vehicleModel.vehicleUseHistoryIconURL
+    let propertiesQuickView = ["property0": vehicleModel.accidentHistoryText, "value0": vehicleModel.accidentHistoryIconURL,
+                               "property1": vehicleModel.ownerHistoryText, "value1": vehicleModel.ownerHistoryIconURL,
+                               "property2": vehicleModel.serviceHistoryText, "value2": vehicleModel.serviceHistoryIconURL,
+                               "property3": vehicleModel.vehicleUseHistoryText, "value3": vehicleModel.vehicleUseHistoryIconURL
     ]
     
-    let propertiesVehicleInfo = ["propA": "carIconBlue", "propB": "carIconBlue"]
-    let propertiesDealerInfo = ["propA": "ValueA", "propB": "ValueB"]
-    let propertiesFinanceInfo = ["propA": "carIconBlue", "propB": "carIconBlue"]
+    let propertiesVehicleInfo = ["property0": "Body Type", "value0": vehicleModel.bodytype,
+                                 "property1": "Color Ext/Int", "value1": vehicleModel.exteriorInteriorColors(),
+                                 "property2": "MPG City/Highway", "value2": vehicleModel.combinedMileage(),
+                                 "property3": "Vin", "value3": vehicleModel.vin
+    ]
+    
+    let propertiesDealerInfo = ["property0": "Name", "value0": vehicleModel.dealerName,
+                                "property1": "Rating", "value1": String(vehicleModel.dealerAverageRating),
+                                "property2": "Address", "value2": vehicleModel.dealerAddr1,
+                                "property3": "", "value3": vehicleModel.formattedCityStateZipFromDealerAddress()
+    ]
+    
+    let propertiesFinancingInfo = ["property0": "Loan Amount", "value0": vehicleModel.loanAmount.currencyFormat(fractionDigits: 0),
+                                 "property1": "Down Payment", "value1": vehicleModel.downPaymentAmount.currencyFormat(fractionDigits: 0),
+                                 "property2": "Interest Rate", "value2": String(vehicleModel.interestRate.percentageFormat()),
+                                 "property3": "Monthly Payments", "value3": vehicleModel.formattedMonthlyPaymentsWithMonths()
+    ]
     
     let items: [CellConfigurator] = [
       PropertiesAndImageCellConfigurator(item: VDPropertiesAndImagesModel(title: "Quick View", properties: propertiesQuickView)),
-      PropertiesAndValuesCellConfigurator(item: VDPropertiesAndValuesModel(title: "Vipul 2", properties: propertiesVehicleInfo)),
-      PropertiesAndValuesCellConfigurator(item: VDPropertiesAndValuesModel(title: "Vipul 3", properties: propertiesDealerInfo)),
-      PropertiesAndValuesCellConfigurator(item: VDPropertiesAndValuesModel(title: "Vipul 4", properties: propertiesFinanceInfo))
+      PropertiesAndValuesCellConfigurator(item: VDPropertiesAndValuesModel(title: "Vehicle Info", properties: propertiesVehicleInfo)),
+      PropertiesAndValuesCellConfigurator(item: VDPropertiesAndValuesModel(title: "Dealer Info", properties: propertiesDealerInfo)),
+      PropertiesAndValuesCellConfigurator(item: VDPropertiesAndValuesModel(title: "Financing Info", properties: propertiesFinancingInfo))
     ]
     
     vehiclePropertiesModel.items = items
@@ -153,6 +159,6 @@ extension VehicleDetailController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let collectionViewWidth = collectionView.bounds.width
     let width = (UIDevice.current.userInterfaceIdiom == .phone) ? collectionViewWidth : collectionViewWidth / 2 - 2
-    return CGSize(width: width, height: 200.0)
+    return CGSize(width: width, height: 180.0)
   }
 }

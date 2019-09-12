@@ -24,12 +24,12 @@ extension Int {
       } ?? String(self)
   }
   
-  var currencyFormat: String {
+  func currencyFormat(fractionDigits: Int) -> String {
     let formatter = NumberFormatter()
     formatter.locale = Locale.current
     formatter.numberStyle = .currency
-    formatter.maximumFractionDigits = 0
-    
+    formatter.maximumFractionDigits = fractionDigits
+  
     return formatter.string(from: self as NSNumber) ?? ""
   }
 }

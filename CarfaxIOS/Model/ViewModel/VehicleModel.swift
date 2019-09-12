@@ -34,25 +34,42 @@ class VehicleModel: NSObject, Decodable {
   var latitude: String = ""
   var longitude: String = ""
   
-  // fields for Vehicle Details page
+  // fields for Vehicle Details page (Cell Carfax Info QuickView)
   var accidentHistoryIconURL: String = ""
   var accidentHistoryText: String = ""
-  
   var ownerHistoryIconURL: String = ""
   var ownerHistoryText: String = ""
-  
   var serviceHistoryIconURL: String = ""
   var serviceHistoryText: String = ""
-  
   var vehicleUseHistoryIconURL: String = ""
   var vehicleUseHistoryText: String = ""
   
+  // fields for Vehicle Details page (Cell vehicle Info)
+  var bodytype: String = ""
+  var exteriorColor: String = ""
+  var interiorColor: String = ""
+  var vin: String = ""
+  var mpgCity: Int = 0
+  var mpgHighway: Int = 0
+  
+  // fields for Vehicle Details page (Cell Dealer Info)
+  var dealerName: String = ""
+  var dealerAddr1: String = ""
+  var dealerAverageRating: Double = 0
+  
+  // fields for Vehicle Details page (Monthly payment Info)
+  var downPaymentAmount: Double = 0
+  var interestRate: Double = 0
+  var loanAmount: Double = 0
+  var monthlyPayment: Double = 0
+  var termInMonths: Int = 0
+  
   enum RootKeys: String, CodingKey {
-    case year, make, model, trim, listPrice, mileage, dealer, images, accidentHistory, ownerHistory, serviceHistory, vehicleUseHistory
+    case year, make, model, trim, listPrice, mileage, dealer, images, accidentHistory, ownerHistory, serviceHistory, vehicleUseHistory, mpgCity, mpgHighway, bodytype, exteriorColor, interiorColor, vin, monthlyPaymentEstimate
   }
   
   enum DealerKeys: String, CodingKey {
-    case city, state, zip, phone, latitude, longitude
+    case city, state, zip, phone, latitude, longitude, name, dealerAverageRating, address
   }
   
   enum ImageKeys: String, CodingKey {
@@ -79,6 +96,10 @@ class VehicleModel: NSObject, Decodable {
     case iconUrl, text
   }
   
+  enum MonthlyPaymentsEstimateKeys: String, CodingKey {
+    case downPaymentAmount, interestRate, loanAmount, monthlyPayment, termInMonths
+  }
+  
   override init() {
   }
   
@@ -92,6 +113,7 @@ class VehicleModel: NSObject, Decodable {
     decodeOwnerHistoryContainerValues(from: decoder)
     decodeServiceHistoryContainerValues(from: decoder)
     decodeVehicleHistoryContainerValues(from: decoder)
+    decodeMonthlyPaymentContainerValues(from: decoder)
   }
   
   func decodeMainContainerValues(from decoder: Decoder) {
@@ -104,6 +126,14 @@ class VehicleModel: NSObject, Decodable {
       trim = try container.decode(String.self, forKey: .trim)
       listPrice = try container.decode(Int.self, forKey: .listPrice)
       mileage = try container.decode(Int.self, forKey: .mileage)
+      
+      bodytype = try container.decode(String.self, forKey: .bodytype)
+      exteriorColor = try container.decode(String.self, forKey: .exteriorColor)
+      interiorColor = try container.decode(String.self, forKey: .interiorColor)
+      vin = try container.decode(String.self, forKey: .vin)
+      
+      mpgCity = try container.decode(Int.self, forKey: .mpgCity)
+      mpgHighway = try container.decode(Int.self, forKey: .mpgHighway)
     } catch {
       print (error)
     }
@@ -119,6 +149,11 @@ class VehicleModel: NSObject, Decodable {
       phone = try dealerContainer.decode(String.self, forKey: .phone)
       latitude = try dealerContainer.decode(String.self, forKey: .latitude)
       longitude = try dealerContainer.decode(String.self, forKey: .longitude)
+      
+      dealerName = try dealerContainer.decode(String.self, forKey: .name)
+      dealerAddr1 = try dealerContainer.decode(String.self, forKey: .address)
+      dealerAverageRating = try dealerContainer.decode(Double.self, forKey: .dealerAverageRating)
+      
     } catch {
       print (error)
     }
@@ -194,6 +229,31 @@ class VehicleModel: NSObject, Decodable {
     }
   }
   
+  func decodeMonthlyPaymentContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+      let monthlyPaymentContainer = try container.nestedContainer(keyedBy: MonthlyPaymentsEstimateKeys.self, forKey: .monthlyPaymentEstimate)
+      
+      downPaymentAmount = try monthlyPaymentContainer.decode(Double.self, forKey: .downPaymentAmount)
+      interestRate = try monthlyPaymentContainer.decode(Double.self, forKey: .interestRate)
+      loanAmount = try monthlyPaymentContainer.decode(Double.self, forKey: .loanAmount)
+      monthlyPayment = try monthlyPaymentContainer.decode(Double.self, forKey: .monthlyPayment)
+      termInMonths = try monthlyPaymentContainer.decode(Int.self, forKey: .termInMonths)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func formattedCityStateZipFromDealerAddress () -> String {
+    return city + ", " + state + ", " + zip
+  }
+  
+  // $ 198.9 for 60 months
+  func formattedMonthlyPaymentsWithMonths() -> String {
+    return monthlyPayment.currencyFormat(fractionDigits:2) + " for " + String(termInMonths) + " months"
+    
+  }
+  
   func formattedYearMakeModelTrim () -> String {
     if trim.caseInsensitiveCompare("Unspecified") == .orderedSame {
       return String(year) + " " + make + " " + model
@@ -203,7 +263,7 @@ class VehicleModel: NSObject, Decodable {
   
   func formattedPriceMileageLocation () -> NSAttributedString {
     
-    let StringPrice = listPrice.currencyFormat
+    let StringPrice = listPrice.currencyFormat(fractionDigits: 2)
     let StringMileage = mileage.abbreviated
     let mileageCityState = " | " + StringMileage + "Mi | " + city + ", " + state
     
@@ -227,6 +287,14 @@ class VehicleModel: NSObject, Decodable {
   
   func formattedPhoneNumber () -> String? {
     return phone.formattedPhoneNumber()
+  }
+  
+  func exteriorInteriorColors () -> String {
+    return exteriorColor + " / " + interiorColor
+  }
+  
+  func combinedMileage () -> String {
+    return String(mpgCity) + " / " + String(mpgHighway)
   }
 }
 
