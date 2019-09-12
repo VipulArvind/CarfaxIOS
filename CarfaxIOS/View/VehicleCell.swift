@@ -21,6 +21,7 @@ class VehicleCell: UICollectionViewCell {
   @IBOutlet weak var vehicleImageView: UIImageView!
   @IBOutlet weak var phoneNumber: UIButton!
   
+  var vehicleModel: VehicleModel?
   // MARK: - overrides  
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -33,6 +34,8 @@ class VehicleCell: UICollectionViewCell {
   }
   
   func updateValues(vehicleModel: VehicleModel, cellForItemAt indexPath: IndexPath) {
+    self.vehicleModel = vehicleModel
+    
     vehicleYearMakeModel.text = vehicleModel.formattedYearMakeModelTrim()
     vehiclePriceMileageLocation.attributedText = vehicleModel.formattedPriceMileageLocation()
     phoneNumber.setTitle(vehicleModel.formattedPhoneNumber(), for: .normal)
@@ -67,7 +70,7 @@ class VehicleCell: UICollectionViewCell {
 
   // MARK: - User Action Handling
   @IBAction func callPhoneTapped(_ sender: Any) {
-    let phoneNumber = "5126941836"
+    guard let phoneNumber = self.vehicleModel?.phone else {return}
     if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
       
       let application: UIApplication = UIApplication.shared
