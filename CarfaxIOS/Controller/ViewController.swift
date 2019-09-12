@@ -71,10 +71,21 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
-    cell.updateValues(vehicle: aVehicle, cellForItemAt: indexPath)
+    cell.updateValues(vehicleModel: aVehicle, cellForItemAt: indexPath)
     
     return cell
   }
+  
+  /*
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    guard
+      let aVehicle = vehiclesManager.vehicle(atIndex: indexPath.row)
+      else {
+        return
+    }
+    
+    
+  }*/
 }
 
 // extension ViewController
@@ -120,11 +131,21 @@ extension ViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-    guard let destination = segue.destination as? AllVehiclesOnMapController
-      else {
-        return
+    if let destination = segue.destination as? AllVehiclesOnMapController {
+      destination.vehiclesManager = vehiclesManager
+    } else if let destination = segue.destination as? VehicleDetailController {
+      
+      let backItem = UIBarButtonItem()
+      backItem.title = ""
+      navigationItem.backBarButtonItem = backItem
+      
+      guard
+        let index = collectionView.indexPathsForSelectedItems?.first,
+        let aVehicle = vehiclesManager.vehicle(atIndex: index.row)
+        else {
+          return
+      }
+      destination.vehicleModel = aVehicle      
     }
-
-    destination.vehiclesManager = vehiclesManager
   }
 }

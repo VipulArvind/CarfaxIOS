@@ -91,7 +91,7 @@ extension AllVehiclesOnMapController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                calloutAccessoryControlTapped control: UIControl) {
     guard
-        let location = view.annotation as? Vehicle
+        let location = view.annotation as? VehicleModel
       else {
           return
       }

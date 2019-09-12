@@ -17,7 +17,7 @@ import UIKit
 final class VehiclesManager: NSObject {
   
   // MARK: - Vars
-  var vehiclesList: [Vehicle] = []
+  var vehiclesList: [VehicleModel] = []
     
   // MARK: - overrides
   override init() {
@@ -48,18 +48,18 @@ final class VehiclesManager: NSObject {
     return vehiclesList.count
   }
    
-  func vehicle(atIndex: Int) -> Vehicle? {
+  func vehicle(atIndex: Int) -> VehicleModel? {
     if vehiclesList.count > atIndex {
       return vehiclesList[atIndex]
     }
     return nil
   }
    
-  func allVehicles() -> [Vehicle] {
+  func allVehicles() -> [VehicleModel] {
     return vehiclesList
   }
    
-  func first() -> Vehicle? {
+  func first() -> VehicleModel? {
     return vehiclesList.first
   }
   

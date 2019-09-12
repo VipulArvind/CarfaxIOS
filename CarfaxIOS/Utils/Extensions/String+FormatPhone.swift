@@ -10,7 +10,11 @@ import Foundation
 
 extension String {
   
-  /// This method makes it easier extract a substring by character index where a character is viewed as a human-readable character (grapheme cluster).
+  //
+  // following 2 methods taken from https://stackoverflow.com/questions/32364055/formatting-phone-number-in-swift
+  // tested with different phone number formats
+  //
+  
   internal func substring(start: Int, offsetBy: Int) -> String? {
     guard let substringStartIndex = self.index(startIndex, offsetBy: start, limitedBy: endIndex) else {
       return nil

@@ -10,6 +10,11 @@ import Foundation
 
 extension Int {
   
+  //
+  // method taken from https://stackoverflow.com/questions/18267211/ios-convert-large-numbers-to-smaller-format/39801536#39801536
+  // tested with different numbers (hundreds,thousands etc.)
+  //
+  
   var abbreviated: String {
     let abbrev = "KMBTPE"
     return abbrev.enumerated().reversed().reduce(nil as String?) { accum, tuple in

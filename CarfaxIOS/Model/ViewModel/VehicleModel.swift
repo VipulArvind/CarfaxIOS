@@ -15,7 +15,7 @@ import Contacts
 //      Model for 1 Vehicle
 //
 
-class Vehicle: NSObject, Decodable {
+class VehicleModel: NSObject, Decodable {
   var year: Int = 0
   var make: String = ""
   var model: String = ""
@@ -34,8 +34,21 @@ class Vehicle: NSObject, Decodable {
   var latitude: String = ""
   var longitude: String = ""
   
+  // fields for Vehicle Details page
+  var accidentHistoryIconURL: String = ""
+  var accidentHistoryText: String = ""
+  
+  var ownerHistoryIconURL: String = ""
+  var ownerHistoryText: String = ""
+  
+  var serviceHistoryIconURL: String = ""
+  var serviceHistoryText: String = ""
+  
+  var vehicleUseHistoryIconURL: String = ""
+  var vehicleUseHistoryText: String = ""
+  
   enum RootKeys: String, CodingKey {
-    case year, make, model, trim, listPrice, mileage, dealer, images
+    case year, make, model, trim, listPrice, mileage, dealer, images, accidentHistory, ownerHistory, serviceHistory, vehicleUseHistory
   }
   
   enum DealerKeys: String, CodingKey {
@@ -50,28 +63,70 @@ class Vehicle: NSObject, Decodable {
     case large, medium, small
   }
   
+  enum AccidentHistoryKeys: String, CodingKey {
+    case iconUrl, text
+  }
+  
+  enum OwnerHistoryKeys: String, CodingKey {
+    case iconUrl, text
+  }
+  
+  enum ServiceHistoryKeys: String, CodingKey {
+    case iconUrl, text
+  }
+  
+  enum VehicleUseHistoryKeys: String, CodingKey {
+    case iconUrl, text
+  }
+  
   override init() {
   }
   
   required init(from decoder: Decoder) throws {
+    super.init()
     
-    let container = try decoder.container(keyedBy: RootKeys.self)
-    year = try container.decode(Int.self, forKey: .year)
-    make = try container.decode(String.self, forKey: .make)
-    model = try container.decode(String.self, forKey: .model)
-    trim = try container.decode(String.self, forKey: .trim)
-    listPrice = try container.decode(Int.self, forKey: .listPrice)
-    mileage = try container.decode(Int.self, forKey: .mileage)
-    
-    let dealerContainer = try container.nestedContainer(keyedBy: DealerKeys.self, forKey: .dealer)
-    city = try dealerContainer.decode(String.self, forKey: .city)
-    state = try dealerContainer.decode(String.self, forKey: .state)
-    zip = try dealerContainer.decode(String.self, forKey: .zip)
-    phone = try dealerContainer.decode(String.self, forKey: .phone)
-    latitude = try dealerContainer.decode(String.self, forKey: .latitude)
-    longitude = try dealerContainer.decode(String.self, forKey: .longitude)
-    
+    decodeMainContainerValues(from: decoder)
+    decodeDealerContainerValues(from: decoder)
+    decodeImagesContainerValues(from: decoder)
+    decodeAccidentHistoryContainerValues(from: decoder)
+    decodeOwnerHistoryContainerValues(from: decoder)
+    decodeServiceHistoryContainerValues(from: decoder)
+    decodeVehicleHistoryContainerValues(from: decoder)
+  }
+  
+  func decodeMainContainerValues(from decoder: Decoder) {
     do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+    
+      year = try container.decode(Int.self, forKey: .year)
+      make = try container.decode(String.self, forKey: .make)
+      model = try container.decode(String.self, forKey: .model)
+      trim = try container.decode(String.self, forKey: .trim)
+      listPrice = try container.decode(Int.self, forKey: .listPrice)
+      mileage = try container.decode(Int.self, forKey: .mileage)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func decodeDealerContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+      let dealerContainer = try container.nestedContainer(keyedBy: DealerKeys.self, forKey: .dealer)
+      city = try dealerContainer.decode(String.self, forKey: .city)
+      state = try dealerContainer.decode(String.self, forKey: .state)
+      zip = try dealerContainer.decode(String.self, forKey: .zip)
+      phone = try dealerContainer.decode(String.self, forKey: .phone)
+      latitude = try dealerContainer.decode(String.self, forKey: .latitude)
+      longitude = try dealerContainer.decode(String.self, forKey: .longitude)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func decodeImagesContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
       let imagesContainer = try container.nestedContainer(keyedBy: ImageKeys.self, forKey: .images)
       let firstPhotoContainer = try imagesContainer.nestedContainer(keyedBy: FirstPhotoKeys.self, forKey: .firstPhoto)
       
@@ -90,6 +145,50 @@ class Vehicle: NSObject, Decodable {
       largeImage = try firstPhotoContainer.decode(String.self, forKey: .large)
       mediumImage = try firstPhotoContainer.decode(String.self, forKey: .medium)
       smallImage = try firstPhotoContainer.decode(String.self, forKey: .small)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func decodeAccidentHistoryContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+      let accidentHistoryContainer = try container.nestedContainer(keyedBy: AccidentHistoryKeys.self, forKey: .accidentHistory)
+      accidentHistoryIconURL = try accidentHistoryContainer.decode(String.self, forKey: .iconUrl)
+      accidentHistoryText = try accidentHistoryContainer.decode(String.self, forKey: .text)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func decodeOwnerHistoryContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+      let ownerHistoryContainer = try container.nestedContainer(keyedBy: OwnerHistoryKeys.self, forKey: .ownerHistory)
+      ownerHistoryIconURL = try ownerHistoryContainer.decode(String.self, forKey: .iconUrl)
+      ownerHistoryText = try ownerHistoryContainer.decode(String.self, forKey: .text)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func decodeServiceHistoryContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+      let serviceHistoryContainer = try container.nestedContainer(keyedBy: ServiceHistoryKeys.self, forKey: .serviceHistory)
+      serviceHistoryIconURL = try serviceHistoryContainer.decode(String.self, forKey: .iconUrl)
+      serviceHistoryText = try serviceHistoryContainer.decode(String.self, forKey: .text)
+    } catch {
+      print (error)
+    }
+  }
+  
+  func decodeVehicleHistoryContainerValues(from decoder: Decoder) {
+    do {
+      let container = try decoder.container(keyedBy: RootKeys.self)
+      let vehicleHistoryContainer = try container.nestedContainer(keyedBy: VehicleUseHistoryKeys.self, forKey: .vehicleUseHistory)
+      vehicleUseHistoryIconURL = try vehicleHistoryContainer.decode(String.self, forKey: .iconUrl)
+      vehicleUseHistoryText = try vehicleHistoryContainer.decode(String.self, forKey: .text)
     } catch {
       print (error)
     }
@@ -132,10 +231,10 @@ class Vehicle: NSObject, Decodable {
 }
 
 struct CarfaxAPIResponse: Decodable {
-  var listings: [Vehicle]
+  var listings: [VehicleModel]
 }
 
-extension Vehicle: MKAnnotation {
+extension VehicleModel: MKAnnotation {
   
   var coordinate: CLLocationCoordinate2D {
     let doubleLon = Double(longitude) ?? 0

@@ -32,17 +32,17 @@ class VehicleCell: UICollectionViewCell {
     vehicleYearMakeModel.textColor = Constants.blackColor
   }
   
-  func updateValues(vehicle: Vehicle, cellForItemAt indexPath: IndexPath) {
-    vehicleYearMakeModel.text = vehicle.formattedYearMakeModelTrim()
-    vehiclePriceMileageLocation.attributedText = vehicle.formattedPriceMileageLocation()
-    phoneNumber.setTitle(vehicle.formattedPhoneNumber(), for: .normal)
-    updateVehicleImage(vehicle: vehicle, cellForItemAt: indexPath)
+  func updateValues(vehicleModel: VehicleModel, cellForItemAt indexPath: IndexPath) {
+    vehicleYearMakeModel.text = vehicleModel.formattedYearMakeModelTrim()
+    vehiclePriceMileageLocation.attributedText = vehicleModel.formattedPriceMileageLocation()
+    phoneNumber.setTitle(vehicleModel.formattedPhoneNumber(), for: .normal)
+    updateVehicleImage(vehicleModel: vehicleModel, cellForItemAt: indexPath)
   }
   
-  func updateVehicleImage(vehicle: Vehicle, cellForItemAt indexPath: IndexPath) {
+  func updateVehicleImage(vehicleModel: VehicleModel, cellForItemAt indexPath: IndexPath) {
     vehicleImageView.image = nil
     
-    let imgURL = vehicle.mediumImage
+    let imgURL = vehicleModel.mediumImage
     if let cacheImage = CacheManager.shared.getImageFromCache(key: imgURL) {
       vehicleImageView.image = cacheImage
     } else {
@@ -77,7 +77,6 @@ class VehicleCell: UICollectionViewCell {
         } else {
           // Fallback on earlier versions
           application.openURL(phoneCallURL as URL)
-          
         }
       }
     }

@@ -1,6 +1,6 @@
 //
 //  VehicleAnnotationView.swift
-//  BRIOSApp
+//  CarfaxIOS
 //
 //  Created by Vipul Arvind on 9/8/19.
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
@@ -21,7 +21,7 @@ class VehicleAnnotationView: MKAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard
-                let vehicleModel = newValue as? Vehicle
+                let vehicleModel = newValue as? VehicleModel
             else {
                 return
             }

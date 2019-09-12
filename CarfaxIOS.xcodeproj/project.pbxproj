@@ -12,6 +12,9 @@
 		8111EF00232570FA005F32A7 /* String+FormatPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EEFF232570FA005F32A7 /* String+FormatPhone.swift */; };
 		8111EF022325903D005F32A7 /* AllVehiclesOnMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */; };
 		8111EF0423259486005F32A7 /* VehicleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */; };
+		8111EF062325A4F4005F32A7 /* VehicleDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF052325A4F4005F32A7 /* VehicleDetailController.swift */; };
+		815510D42329C66900160E78 /* VDCellModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815510D32329C66900160E78 /* VDCellModels.swift */; };
+		815510D62329C6C600160E78 /* VDCellViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815510D52329C6C600160E78 /* VDCellViews.swift */; };
 		8172A0422322B68F005B4DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0412322B68F005B4DA1 /* AppDelegate.swift */; };
 		8172A0442322B68F005B4DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0432322B68F005B4DA1 /* ViewController.swift */; };
 		8172A0472322B68F005B4DA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8172A0452322B68F005B4DA1 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 		8111EEFF232570FA005F32A7 /* String+FormatPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+FormatPhone.swift"; sourceTree = "<group>"; };
 		8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllVehiclesOnMapController.swift; sourceTree = "<group>"; };
 		8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleAnnotationView.swift; sourceTree = "<group>"; };
+		8111EF052325A4F4005F32A7 /* VehicleDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailController.swift; sourceTree = "<group>"; };
+		815510D32329C66900160E78 /* VDCellModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDCellModels.swift; sourceTree = "<group>"; };
+		815510D52329C6C600160E78 /* VDCellViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDCellViews.swift; sourceTree = "<group>"; };
 		8172A03E2322B68F005B4DA1 /* CarfaxIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarfaxIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8172A0412322B68F005B4DA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8172A0432322B68F005B4DA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		815510D72329C6F900160E78 /* VehicleDetailModels */ = {
+			isa = PBXGroup;
+			children = (
+				815510D32329C66900160E78 /* VDCellModels.swift */,
+			);
+			path = VehicleDetailModels;
+			sourceTree = "<group>";
+		};
+		815510D82329C70C00160E78 /* VehicleDetailCellViews */ = {
+			isa = PBXGroup;
+			children = (
+				815510D52329C6C600160E78 /* VDCellViews.swift */,
+			);
+			path = VehicleDetailCellViews;
+			sourceTree = "<group>";
+		};
 		8172A0352322B68F005B4DA1 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +136,7 @@
 		8172A0582322C9FC005B4DA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				815510D82329C70C00160E78 /* VehicleDetailCellViews */,
 				8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */,
 				8172A0562322C9F5005B4DA1 /* VehicleCell.swift */,
 			);
@@ -123,6 +146,7 @@
 		8172A0592322CED9005B4DA1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8111EF052325A4F4005F32A7 /* VehicleDetailController.swift */,
 				8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */,
 				8172A0432322B68F005B4DA1 /* ViewController.swift */,
 			);
@@ -158,6 +182,7 @@
 		8172A0682322E018005B4DA1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				815510D72329C6F900160E78 /* VehicleDetailModels */,
 				8172A0632322D8FD005B4DA1 /* VehiclesManager.swift */,
 				8172A05D2322CF3B005B4DA1 /* VehicleModel.swift */,
 			);
@@ -261,13 +286,16 @@
 				8172A0612322D60F005B4DA1 /* Constants.swift in Sources */,
 				8172A0572322C9F5005B4DA1 /* VehicleCell.swift in Sources */,
 				8172A0442322B68F005B4DA1 /* ViewController.swift in Sources */,
+				815510D62329C6C600160E78 /* VDCellViews.swift in Sources */,
 				8111EF00232570FA005F32A7 /* String+FormatPhone.swift in Sources */,
 				8111EF0423259486005F32A7 /* VehicleAnnotationView.swift in Sources */,
 				8111EEFC2324A0FC005F32A7 /* CacheManager.swift in Sources */,
 				8172A0662322E003005B4DA1 /* DataMgr.swift in Sources */,
 				8172A06A232314B0005B4DA1 /* ErrorEnums.swift in Sources */,
+				8111EF062325A4F4005F32A7 /* VehicleDetailController.swift in Sources */,
 				8111EF022325903D005F32A7 /* AllVehiclesOnMapController.swift in Sources */,
 				8172A05E2322CF3B005B4DA1 /* VehicleModel.swift in Sources */,
+				815510D42329C66900160E78 /* VDCellModels.swift in Sources */,
 				8111EEFE232570C5005F32A7 /* Int+Formatting.swift in Sources */,
 				8172A0422322B68F005B4DA1 /* AppDelegate.swift in Sources */,
 			);
