@@ -15,7 +15,7 @@ import Contacts
 //      Model for 1 Vehicle
 //
 
-class VehicleModel: NSObject, Decodable {
+class VehicleModel: NSObject {
   
   // MARK: - vars
   var year: Int = 0
@@ -119,12 +119,19 @@ class VehicleModel: NSObject, Decodable {
     decodeVehicleHistoryContainerValues(from: decoder)
     decodeMonthlyPaymentContainerValues(from: decoder)
   }
-  
+}
+
+struct CarfaxAPIResponse: Decodable {
+  var listings: [VehicleModel]
+}
+
+// MARK: - extension to handle decoding of various fields fom the JSON
+extension VehicleModel: Decodable {
   // MARK: - methods to decode the JSON via decodable protocol
   func decodeMainContainerValues(from decoder: Decoder) {
     do {
       let container = try decoder.container(keyedBy: RootKeys.self)
-    
+      
       year = try container.decode(Int.self, forKey: .year)
       make = try container.decode(String.self, forKey: .make)
       model = try container.decode(String.self, forKey: .model)
@@ -248,7 +255,11 @@ class VehicleModel: NSObject, Decodable {
       print (error)
     }
   }
-  
+}
+
+// MARK: - extension to handle formatting of the different fields
+
+extension VehicleModel {
   // MARK: - methods to return formatted data
   func formattedCityStateZipFromDealerAddress () -> String {
     return city + ", " + state + ", " + zip
@@ -302,10 +313,6 @@ class VehicleModel: NSObject, Decodable {
   func combinedMileage () -> String {
     return String(mpgCity) + " / " + String(mpgHighway)
   }
-}
-
-struct CarfaxAPIResponse: Decodable {
-  var listings: [VehicleModel]
 }
 
 // MARK: - extension to handle Maps annotation

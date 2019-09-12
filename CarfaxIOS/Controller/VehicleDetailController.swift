@@ -78,7 +78,13 @@ class VehicleDetailController: UIViewController {
         
     mapView.setRegion(coordinateRegion, animated: true)
   }
-    
+  
+  // we are dividing the Vehicle details in 4 Cells
+  // each cell will hold 4 sets of properties
+  //
+  // further this collectioview handles 2 different types of cells
+  // 1 which displays Properties and there text values (for example Bodytype -> Sedan)
+  // 2nd which displays Properties and there assocaited imag icons (for example Accident Histiry -> Icon denoting the accident history)
   private func initVehicleDetails() {
 
     vehiclePriceMileageLocation.text = vehicleModel.formattedPriceMileageLocation().string
