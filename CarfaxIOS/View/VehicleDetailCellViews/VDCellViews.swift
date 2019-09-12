@@ -6,6 +6,13 @@
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
 //
 
+//
+// VDCellViews
+//    File to implement 2 Views for 2 different UICollectionView Cells 
+//    These Cells are used in Vehicle Detail Controller View
+//    This is part of extra activity for assignment
+
+
 import UIKit
 import Foundation
 
@@ -15,6 +22,8 @@ protocol ConfigurableCell {
 }
 
 class VDPropertiesAndValuesCell: UICollectionViewCell, ConfigurableCell {
+  
+  // MARK: - Outlets
   
   @IBOutlet weak var title: UILabel!
   
@@ -27,6 +36,7 @@ class VDPropertiesAndValuesCell: UICollectionViewCell, ConfigurableCell {
   @IBOutlet weak var property3: UILabel!
   @IBOutlet weak var value3: UILabel!
   
+  // MARK: - methods
   func configure(data cellModel: VDPropertiesAndValuesModel, atIndex: IndexPath) {
     title.text = cellModel.title
     property0.text = cellModel.propertiesList["property0"]
@@ -43,6 +53,8 @@ class VDPropertiesAndValuesCell: UICollectionViewCell, ConfigurableCell {
 
 class VDPropertiesAndImagesCell: UICollectionViewCell, ConfigurableCell {
   
+  // MARK: - Outlets
+  
   @IBOutlet weak var title: UILabel!
   
   @IBOutlet weak var property0: UILabel!
@@ -54,6 +66,7 @@ class VDPropertiesAndImagesCell: UICollectionViewCell, ConfigurableCell {
   @IBOutlet weak var property3: UILabel!
   @IBOutlet weak var imageView3: UIImageView!
   
+  // MARK: - methods
   func configure(data cellModel: VDPropertiesAndImagesModel, atIndex: IndexPath) {
     title.text = cellModel.title
     

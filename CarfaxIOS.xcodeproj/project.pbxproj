@@ -13,6 +13,7 @@
 		8111EF022325903D005F32A7 /* AllVehiclesOnMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */; };
 		8111EF0423259486005F32A7 /* VehicleAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */; };
 		8111EF062325A4F4005F32A7 /* VehicleDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8111EF052325A4F4005F32A7 /* VehicleDetailController.swift */; };
+		81444ABF232A949F0065AF86 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81444ABE232A949F0065AF86 /* readme.txt */; };
 		815510D42329C66900160E78 /* VDCellModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815510D32329C66900160E78 /* VDCellModels.swift */; };
 		815510D62329C6C600160E78 /* VDCellViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815510D52329C6C600160E78 /* VDCellViews.swift */; };
 		815510DA232A014100160E78 /* Double+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815510D9232A014100160E78 /* Double+Formatting.swift */; };
@@ -36,6 +37,7 @@
 		8111EF012325903D005F32A7 /* AllVehiclesOnMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllVehiclesOnMapController.swift; sourceTree = "<group>"; };
 		8111EF0323259486005F32A7 /* VehicleAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleAnnotationView.swift; sourceTree = "<group>"; };
 		8111EF052325A4F4005F32A7 /* VehicleDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailController.swift; sourceTree = "<group>"; };
+		81444ABE232A949F0065AF86 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		815510D32329C66900160E78 /* VDCellModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDCellModels.swift; sourceTree = "<group>"; };
 		815510D52329C6C600160E78 /* VDCellViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VDCellViews.swift; sourceTree = "<group>"; };
 		815510D9232A014100160E78 /* Double+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Formatting.swift"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				8172A0532322BA1F005B4DA1 /* .swiftlint.yml */,
+				81444ABE232A949F0065AF86 /* readme.txt */,
 				8172A0402322B68F005B4DA1 /* CarfaxIOS */,
 				8172A03F2322B68F005B4DA1 /* Products */,
 			);
@@ -248,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81444ABF232A949F0065AF86 /* readme.txt in Resources */,
 				8172A0542322BA20005B4DA1 /* .swiftlint.yml in Resources */,
 				8172A04C2322B691005B4DA1 /* LaunchScreen.storyboard in Resources */,
 				8172A0492322B691005B4DA1 /* Assets.xcassets in Resources */,
