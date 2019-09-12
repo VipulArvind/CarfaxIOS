@@ -1,9 +1,15 @@
 //
-//  CarfaxIOS+String.swift
+//  String+FormatPhone.swift
 //  CarfaxIOS
 //
 //  Created by Vipul Arvind on 9/7/19.
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
+//
+
+//
+// String+FormatPhone
+//      Class to implement the extension for String
+//      Mainly to implement the method to format the phone number
 //
 
 import Foundation

@@ -27,7 +27,6 @@
 		8172A0612322D60F005B4DA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0602322D60F005B4DA1 /* Constants.swift */; };
 		8172A0642322D8FD005B4DA1 /* VehiclesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0632322D8FD005B4DA1 /* VehiclesManager.swift */; };
 		8172A0662322E003005B4DA1 /* DataMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A0652322E003005B4DA1 /* DataMgr.swift */; };
-		8172A06A232314B0005B4DA1 /* ErrorEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8172A069232314B0005B4DA1 /* ErrorEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		8172A0602322D60F005B4DA1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8172A0632322D8FD005B4DA1 /* VehiclesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesManager.swift; sourceTree = "<group>"; };
 		8172A0652322E003005B4DA1 /* DataMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMgr.swift; sourceTree = "<group>"; };
-		8172A069232314B0005B4DA1 /* ErrorEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +166,6 @@
 		8172A0622322D615005B4DA1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				8172A069232314B0005B4DA1 /* ErrorEnums.swift */,
 				8172A0602322D60F005B4DA1 /* Constants.swift */,
 			);
 			path = Constants;
@@ -294,7 +291,6 @@
 				8111EF0423259486005F32A7 /* VehicleAnnotationView.swift in Sources */,
 				8111EEFC2324A0FC005F32A7 /* CacheManager.swift in Sources */,
 				8172A0662322E003005B4DA1 /* DataMgr.swift in Sources */,
-				8172A06A232314B0005B4DA1 /* ErrorEnums.swift in Sources */,
 				8111EF062325A4F4005F32A7 /* VehicleDetailController.swift in Sources */,
 				8111EF022325903D005F32A7 /* AllVehiclesOnMapController.swift in Sources */,
 				815510DA232A014100160E78 /* Double+Formatting.swift in Sources */,

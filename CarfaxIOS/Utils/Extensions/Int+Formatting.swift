@@ -1,5 +1,5 @@
 //
-//  CarfaxIOS+Int.swift
+//  Int+FormatPhone+Int.swift
 //  CarfaxIOS
 //
 //  Created by Vipul Arvind on 9/7/19.
@@ -7,6 +7,12 @@
 //
 
 import Foundation
+
+//
+// Int+FormatPhone
+//      Class to implement the extension for Int
+//      Mainly to implement the method to abbreivate the mileage and to format Ints as currency
+//
 
 extension Int {
   

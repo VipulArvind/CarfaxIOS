@@ -8,6 +8,12 @@
 
 import Foundation
 
+//
+// Double+Formatting.
+//      Class to implement the extension for Double
+//      Mainly to implement the method to format Doubles as currency and to format the Double with % sign
+//
+
 extension Double {
   
   func currencyFormat(fractionDigits: Int) -> String {

@@ -6,9 +6,16 @@
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
 //
 
+//
+// VDCellModels
+//    File to implement 2 Models for 2 different UICollectionView Cells
+//    These Cells are used in Vehicle Detail Controller View
+//    This is part of extra activity for assignment
+
 import UIKit
 import Foundation
 
+// MARK: - Class for Cell with Properties and Text Values
 class VDPropertiesAndValuesModel {
   
   var title: String
@@ -20,6 +27,7 @@ class VDPropertiesAndValuesModel {
   }
 }
 
+// MARK: - Class for Cell with Properties and Images
 class VDPropertiesAndImagesModel {
   
   var title: String
@@ -31,6 +39,7 @@ class VDPropertiesAndImagesModel {
   }
 }
 
+// MARK: - logic to handle 2 different Cell types in 1 UICollectionView
 protocol CellConfigurator {
   static var reuseId: String { get }
 
@@ -58,6 +67,5 @@ typealias PropertiesAndImageCellConfigurator = CollectionCellConfigurator<VDProp
 class VDPropertiesModel {
   var items: [CellConfigurator] = []
   init(items: [CellConfigurator]) {
-    //self.items = items
   }
 }

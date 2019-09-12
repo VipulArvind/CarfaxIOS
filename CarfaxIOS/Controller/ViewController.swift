@@ -6,6 +6,13 @@
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
 //
 
+//
+// ViewController
+//      Main Home View of the app
+//      Initiates request to fetch the data from Server
+//      Shows all Vehicles in List view
+//
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -34,12 +41,18 @@ class ViewController: UIViewController {
       if success == true {
         self?.collectionView.reloadData()
       } else {
+        self?.showErrorMessage(error: errorMessage)
       }
       self?.collectionView.refreshControl?.endRefreshing()
     }
   }
   
-  func updateAllUI (dataObtained: Bool) {
+  func showErrorMessage (error: String) {
+    let alertController = UIAlertController(title: "Unable to retrieve Vehicle Data", message:
+      error, preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+    
+    self.present(alertController, animated: true, completion: nil)
   }
 }
   

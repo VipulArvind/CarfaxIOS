@@ -16,6 +16,8 @@ import Contacts
 //
 
 class VehicleModel: NSObject, Decodable {
+  
+  // MARK: - vars
   var year: Int = 0
   var make: String = ""
   var model: String = ""
@@ -34,7 +36,7 @@ class VehicleModel: NSObject, Decodable {
   var latitude: String = ""
   var longitude: String = ""
   
-  // fields for Vehicle Details page (Cell Carfax Info QuickView)
+  // MARK: - fields for Vehicle Details page (Cell Carfax Info QuickView)
   var accidentHistoryIconURL: String = ""
   var accidentHistoryText: String = ""
   var ownerHistoryIconURL: String = ""
@@ -44,7 +46,7 @@ class VehicleModel: NSObject, Decodable {
   var vehicleUseHistoryIconURL: String = ""
   var vehicleUseHistoryText: String = ""
   
-  // fields for Vehicle Details page (Cell vehicle Info)
+  // MARK: - fields for Vehicle Details page (Cell vehicle Info)
   var bodytype: String = ""
   var exteriorColor: String = ""
   var interiorColor: String = ""
@@ -52,18 +54,19 @@ class VehicleModel: NSObject, Decodable {
   var mpgCity: Int = 0
   var mpgHighway: Int = 0
   
-  // fields for Vehicle Details page (Cell Dealer Info)
+  // MARK: - fields for Vehicle Details page (Cell Dealer Info)
   var dealerName: String = ""
   var dealerAddr1: String = ""
   var dealerAverageRating: Double = 0
   
-  // fields for Vehicle Details page (Monthly payment Info)
+  // MARK: - fields for Vehicle Details page (Monthly payment Info)
   var downPaymentAmount: Double = 0
   var interestRate: Double = 0
   var loanAmount: Double = 0
   var monthlyPayment: Double = 0
   var termInMonths: Int = 0
   
+  // MARK: - All the keys to access various container
   enum RootKeys: String, CodingKey {
     case year, make, model, trim, listPrice, mileage, dealer, images, accidentHistory, ownerHistory, serviceHistory, vehicleUseHistory, mpgCity, mpgHighway, bodytype, exteriorColor, interiorColor, vin, monthlyPaymentEstimate
   }
@@ -100,6 +103,7 @@ class VehicleModel: NSObject, Decodable {
     case downPaymentAmount, interestRate, loanAmount, monthlyPayment, termInMonths
   }
   
+  // MARK: - init(s)
   override init() {
   }
   
@@ -116,6 +120,7 @@ class VehicleModel: NSObject, Decodable {
     decodeMonthlyPaymentContainerValues(from: decoder)
   }
   
+  // MARK: - methods to decode the JSON via decodable protocol
   func decodeMainContainerValues(from decoder: Decoder) {
     do {
       let container = try decoder.container(keyedBy: RootKeys.self)
@@ -244,6 +249,7 @@ class VehicleModel: NSObject, Decodable {
     }
   }
   
+  // MARK: - methods to return formatted data
   func formattedCityStateZipFromDealerAddress () -> String {
     return city + ", " + state + ", " + zip
   }
@@ -302,6 +308,8 @@ struct CarfaxAPIResponse: Decodable {
   var listings: [VehicleModel]
 }
 
+// MARK: - extension to handle Maps annotation
+// important fields are coordinates
 extension VehicleModel: MKAnnotation {
   
   var coordinate: CLLocationCoordinate2D {

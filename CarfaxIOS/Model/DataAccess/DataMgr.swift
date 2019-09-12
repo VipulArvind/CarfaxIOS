@@ -11,19 +11,25 @@ import UIKit
 
 //
 // DataMgr
-//      Class to implement all 'data fetching from server tasks'
+//      Class to implement all 'data fetching from server' tasks
 //
 
 class DataMgr {
+  
+  // MARK: - Vars
   
   let defaultSession = URLSession(configuration: .default)
   var dataTask: URLSessionDataTask?
   var errorMessage = ""
   
+  // MARK: - Private methods
+  
   private func vehiclesDataURL () -> String {
     return Constants.vehiclesDataURL
   }
-    
+  
+  // MARK: - Public methods
+  
   func getVehiclesData (completion: @escaping DataMgrCallback) {
     dataTask?.cancel()
     

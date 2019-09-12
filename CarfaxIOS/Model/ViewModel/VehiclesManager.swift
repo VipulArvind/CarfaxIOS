@@ -36,6 +36,7 @@ final class VehiclesManager: NSObject {
           self.vehiclesList.append(contentsOf: rootData.listings)
         } catch let err {
           print("Err", err)
+          completion(false, err.localizedDescription)
         }
       
         completion(true, "")
