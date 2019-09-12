@@ -47,7 +47,7 @@ class CollectionCellConfigurator<CellType: ConfigurableCell, DataType>: CellConf
   }
   
   func configure(cell: UIView, atIndex: IndexPath) {
-    let cell = (cell as! CellType)
+    guard let cell = (cell as? CellType) else {return}
     cell.configure(data: item, atIndex: atIndex)
   }
 }
