@@ -32,10 +32,8 @@ class ViewController: UIViewController {
   private func startDownloadingData() {
     vehiclesManager.getVehiclesData { [weak self] success, errorMessage in
       if success == true {
-        print ("Success")
         self?.collectionView.reloadData()
       } else {
-        print ("failure")
       }
       self?.collectionView.refreshControl?.endRefreshing()
     }
@@ -112,15 +110,6 @@ extension ViewController {
   }
   
   @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-    /*
-    let newHotel = Hotels(name: "Montage Laguna Beach", place:
-      "California south")
-    hotels.append(newHotel)
-    
-    hotels.sort() { $0.name < $0.place }
-    
-    self.tableView.reloadData()
- */
     vehiclesManager.resetVehiclesList()
     collectionView.reloadData()
     startDownloadingData()
