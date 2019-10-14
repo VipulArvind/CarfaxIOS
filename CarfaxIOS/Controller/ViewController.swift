@@ -75,7 +75,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     cell.tag = indexPath.row
-
+    cell.delegate = self
     guard
       let aVehicle = vehiclesManager.vehicle(atIndex: indexPath.row)
       else {
@@ -148,6 +148,23 @@ extension ViewController {
           return
       }
       destination.vehicleModel = aVehicle      
+    }
+  }
+}
+
+extension ViewController: PhoneCallHandler {
+  func handlePhoneNumberTap (phoneNumber: String) {
+    if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
+      
+      let application: UIApplication = UIApplication.shared
+      if application.canOpenURL(phoneCallURL) {
+        if #available(iOS 10.0, *) {
+          application.open(phoneCallURL, options: [:], completionHandler: nil)
+        } else {
+          // Fallback on earlier versions
+          application.openURL(phoneCallURL as URL)
+        }
+      }
     }
   }
 }

@@ -13,6 +13,10 @@ import UIKit
 //      UICollectionViewCell for 1 Vehicle
 //
 
+protocol PhoneCallHandler: class {
+  func handlePhoneNumberTap (phoneNumber: String)
+}
+
 class VehicleCell: UICollectionViewCell {
     
   // MARK: - Outlets
@@ -22,7 +26,9 @@ class VehicleCell: UICollectionViewCell {
   @IBOutlet weak var phoneNumber: UIButton!
   
   var vehicleModel: VehicleModel?
-  // MARK: - overrides  
+  // MARK: - overrides
+  weak var delegate: PhoneCallHandler?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     initFontsAndColors()
@@ -70,18 +76,9 @@ class VehicleCell: UICollectionViewCell {
 
   // MARK: - User Action Handling
   @IBAction func callPhoneTapped(_ sender: Any) {
+    
     guard let phoneNumber = self.vehicleModel?.phone else {return}
-    if let phoneCallURL = URL(string: "telprompt://\(phoneNumber)") {
-      
-      let application: UIApplication = UIApplication.shared
-      if application.canOpenURL(phoneCallURL) {
-        if #available(iOS 10.0, *) {
-          application.open(phoneCallURL, options: [:], completionHandler: nil)
-        } else {
-          // Fallback on earlier versions
-          application.openURL(phoneCallURL as URL)
-        }
-      }
-    }
+    
+    delegate?.handlePhoneNumberTap(phoneNumber: phoneNumber)
   }
 }

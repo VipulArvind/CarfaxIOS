@@ -25,10 +25,10 @@ class VehicleDetailController: UIViewController {
   // MARK: - Vars
   let locationManager = CLLocationManager()
   var vehicleModel = VehicleModel()
-  var vehiclePropertiesModel =  VDPropertiesModel(items : [])
+  var vehiclePropertiesModel =  VDPropertiesModel(items: [])
     
   convenience init() {
-    self.init(nibName:nil, bundle:nil)
+    self.init(nibName: nil, bundle: nil)
   }
     
   // This extends the superclass.

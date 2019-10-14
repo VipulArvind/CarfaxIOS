@@ -23,7 +23,7 @@ final class CacheManager: NSObject {
     // MARK: - Initialization
     private override init() {
         super.init()
-        observer = NotificationCenter.default.addObserver(forName: UIApplication.didReceiveMemoryWarningNotification, object: nil, queue: nil) { [weak self] notification in
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.didReceiveMemoryWarningNotification, object: nil, queue: nil) { [weak self] _ in
             self?.imageCache.removeAllObjects()
         }
     }

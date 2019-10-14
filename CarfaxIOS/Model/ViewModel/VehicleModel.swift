@@ -147,7 +147,7 @@ extension VehicleModel: Decodable {
       mpgCity = try container.decode(Int.self, forKey: .mpgCity)
       mpgHighway = try container.decode(Int.self, forKey: .mpgHighway)
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -167,7 +167,7 @@ extension VehicleModel: Decodable {
       dealerAverageRating = try dealerContainer.decode(Double.self, forKey: .dealerAverageRating)
       
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -193,7 +193,7 @@ extension VehicleModel: Decodable {
       mediumImage = try firstPhotoContainer.decode(String.self, forKey: .medium)
       smallImage = try firstPhotoContainer.decode(String.self, forKey: .small)
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -204,7 +204,7 @@ extension VehicleModel: Decodable {
       accidentHistoryIconURL = try accidentHistoryContainer.decode(String.self, forKey: .iconUrl)
       accidentHistoryText = try accidentHistoryContainer.decode(String.self, forKey: .text)
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -215,7 +215,7 @@ extension VehicleModel: Decodable {
       ownerHistoryIconURL = try ownerHistoryContainer.decode(String.self, forKey: .iconUrl)
       ownerHistoryText = try ownerHistoryContainer.decode(String.self, forKey: .text)
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -226,7 +226,7 @@ extension VehicleModel: Decodable {
       serviceHistoryIconURL = try serviceHistoryContainer.decode(String.self, forKey: .iconUrl)
       serviceHistoryText = try serviceHistoryContainer.decode(String.self, forKey: .text)
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -237,7 +237,7 @@ extension VehicleModel: Decodable {
       vehicleUseHistoryIconURL = try vehicleHistoryContainer.decode(String.self, forKey: .iconUrl)
       vehicleUseHistoryText = try vehicleHistoryContainer.decode(String.self, forKey: .text)
     } catch {
-      print (error)
+      print(error)
     }
   }
   
@@ -252,7 +252,7 @@ extension VehicleModel: Decodable {
       monthlyPayment = try monthlyPaymentContainer.decode(Double.self, forKey: .monthlyPayment)
       termInMonths = try monthlyPaymentContainer.decode(Int.self, forKey: .termInMonths)
     } catch {
-      print (error)
+      print(error)
     }
   }
 }
@@ -267,7 +267,7 @@ extension VehicleModel {
   
   // $ 198.9 for 60 months
   func formattedMonthlyPaymentsWithMonths() -> String {
-    return monthlyPayment.currencyFormat(fractionDigits:2) + " for " + String(termInMonths) + " months"
+    return monthlyPayment.currencyFormat(fractionDigits: 2) + " for " + String(termInMonths) + " months"
     
   }
   

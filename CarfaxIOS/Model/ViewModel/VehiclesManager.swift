@@ -28,7 +28,7 @@ final class VehiclesManager: NSObject {
     let dataMgrIntrf = DataMgr()
     
     dataMgrIntrf.getVehiclesData { (result, errorMessage) in
-      guard let result = result else { completion(false, "errorMessage"); return}
+      guard let result = result else { completion(false, errorMessage); return}
       
         do {
           let decoder = JSONDecoder()
